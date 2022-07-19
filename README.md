@@ -26,15 +26,17 @@ Lack of ready to use simple application for encryption with modern cipher.
 
 3. Usage Guide
 
-    detailed parameters description: cipher21 -h
-    cipher21 supports 64 hexadecimals keys only which you may create via:
+    
+    thông số chi tiết mô tả:cipher21 -h
+    cipher21 chỉ hỗ trợ 64 khóa thập lục phân mà bạn có thể tạo thông qua:
         > python -c "from os import urandom; print(urandom(32).hex())" > key.hex
         https://www.random.org/integers/?num=8&min=0&max=65535&col=8&base=16&format=html&rnd=new
-    encrypting a file with a hex key fetch from a file: cipher21 -e -k file:key.hex < plain.txt > encrypted.c21
-    encrypting a file with a hex key fetch from an env: cipher21 -e -k env:KEY64 < plain.txt > encrypted.c21
-    decrypting a file with a hex key fetch from a file: cipher21 -d -k file:key.hex < encrypted.c21 > plain.txt
-    compressing and encrypting: mysqldump --all-databases | xz -zc | cipher21 -e -k file:key.hex > db-dump.sql.xz.c21
-    decrypting and decompressing: cat db-dump.sql.xz.c21 | cipher21 -d -k file:key.hex | xz -dc | mysql
+    mã hóa tệp bằng khóa hex tìm nạp từ tệp:cipher21 -e -k file:key.hex < plain.txt > encrypted.c21
+    mã hóa tệp bằng tìm nạp khóa hex từ env:cipher21 -e -k env:KEY64 < plain.txt > encrypted.c21
+    giải mã tệp với tìm nạp khóa hex từ tệp:cipher21 -d -k file:key.hex < encrypted.c21 > plain.txt
+    nén và mã hóa:mysqldump --all-databases | xz -zc | cipher21 -e -k file:key.hex > db-dump.sql.xz.c21
+    giải mã và giải nén:cat db-dump.sql.xz.c21 | cipher21 -d -k file:key.hex | xz -dc | mysql
+
 
 4. Recommended Designations
 
